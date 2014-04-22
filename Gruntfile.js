@@ -61,7 +61,6 @@ module.exports = function (grunt) {
     'linker/js/jquery.validate.js',
     'linker/js/customValidate.js'
 
-
     // All of the rest of your app scripts imported here
   ];
 

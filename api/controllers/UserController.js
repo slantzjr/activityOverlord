@@ -48,5 +48,38 @@ module.exports = {
         user: user
       });
     });
+  },
+
+  index: function(req, res, next) {
+    //Get an array of all users in the table
+    User.find(function foundUsers (err, users) {
+      if(err) return next(err);
+      //pass the array down to index.ejs
+      res.view({
+        users: users
+      });
+    });
+  },
+
+  edit: function(req, res, next) {
+    //Find one user from the id passed in from the params.
+    User.findOne(req.param('id'), function foundUser (err, user) {
+      if(err) return next(err);
+      if(!user) return next();
+      res.view({
+        user: user
+      });
+    });
+  },
+
+  update: function(req, res, next) {
+    User.update(req.param('id'), req.params.all(), function userUpdated (err){
+      if(err) {
+        return res.redirect('/user/edit/' + req.param('id'));
+      }
+
+      res.redirect('/user/show/' + req.param('id'));
+    });
   }
+
 };

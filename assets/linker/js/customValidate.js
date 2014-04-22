@@ -1,7 +1,7 @@
+
 $(document).ready(function(){
-		alert("validation loaded");
-		console.log("validation loaded");
-		$('#form-signin').validate({
+		
+		$('#sign-up-form').validate({
 			rules:{
 				name: {
 					required: true
@@ -9,17 +9,17 @@ $(document).ready(function(){
 				email: {
 					required: true,
 					email: true
-				}
+				},
 				password: {
-					required: true,
-					minlength: 6
+					minlength: 6,
+					required: true
 				},
 				confirmation: {
 					required: true,
 					equalTo: '#password'
 				}
 			},
-			success function(element){
+			success: function(element){
 				element
 				.text('OK').addClass('valid')
 			}
