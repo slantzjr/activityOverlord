@@ -41,6 +41,23 @@ module.exports = {
   		return obj;
   	}
     
+  },
+
+
+  beforeCreate: function(values, next) {
+    if(!values.password || values.password != values.confirmation) {
+      console.log(values.password);
+      console.log(values.confirmation);
+      return next({err: ["Passwords do not match."]});
+    }
+
+    require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+      if (err) return next(err);
+      console.log("password encrypted");
+      values.encryptedPassword = encryptedPassword;
+      next();
+
+    });
   }
 
 };

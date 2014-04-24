@@ -1,5 +1,5 @@
-<form action="/user/update/ <%= user.id %>" method="POST" class="form-signin">
-	<h2>Edit user number <%= user.id %>: <%= user.name %></h2>
+<form action="/user/update/<%= user.id %>" method="POST" class="form-signin">
+	<h2>Edit user: <%= user.name %></h2>
 
 	<input value="<%= user.name %>" name="name" type="text" class="form-control" />
 	<input value="<%= user.title %>" name="title" type="text" class="form-control" />
