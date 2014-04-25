@@ -76,6 +76,11 @@ module.exports = {
   	});
   },
 
+  destroy: function(req, res, next) {
+  	res.session.destroy();
+  	res.redirect('/session/new');
+  },
+
   _config: {}
 
   
