@@ -20,7 +20,7 @@ module.exports.policies = {
 
   user: {
   	'new': 'flash',
-  	'*': 'authenticated'
+  	'*': 'isAuthenticated'
   }
 
   /*
